@@ -42,6 +42,14 @@ export async function GET() {
             userId: user.id,
             streamId: mostUpvotedStream?.id
         }
-    }), ])
+    }), prismaClient.stream.delete({
+        where: {
+            id: mostUpvotedStream?.id ?? ""
+        },
+    })])
+
+    return NextResponse.json({
+        stream: mostUpvotedStream
+    })
 
 }
