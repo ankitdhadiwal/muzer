@@ -33,7 +33,7 @@ model Stream {
   active        Boolean    @default(true)
   upvotes       Upvote[]
   userId        String
-  user          User       @relation(fields: [userId], references: [id])
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   currentStream   CurrentStream?
 }
 
@@ -48,7 +48,7 @@ model Upvote {
   userId     String
   streamId   String
   user       User      @relation(fields: [userId], references: [id])
-  stream     Stream    @relation(fields: [streamId], references: [id])
+  stream     Stream    @relation(fields: [streamId], references: [id], onDelete: Cascade)
   @@unique([userId, streamId])
 }
 

@@ -35,5 +35,5 @@ const creatorId = "8bd27e63-d334-4745-83db-e457c8bfa7d8";
 
 export default function Component() {
    
-    return <StreamView creatorId={creatorId} />
+    return <StreamView creatorId={creatorId} playVideo={true} />
 }
